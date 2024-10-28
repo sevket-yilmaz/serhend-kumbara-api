@@ -10,7 +10,6 @@ public class Placemark
     public string Name { get; set; }
     public decimal Latitude { get; set; }
     public decimal Longitude { get; set; }
-    public int Color { get; set; }
     public PlacemarkStatus Status { get; set; }
     public DateTime LastVisit { get; set; } = DateTime.MinValue;
     public int VisitPeriod { get; set; }

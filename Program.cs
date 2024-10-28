@@ -44,6 +44,8 @@ builder.Services.AddTransient<PlacemarkService, PlacemarkService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.WebHost.UseSentry();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

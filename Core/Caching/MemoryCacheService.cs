@@ -42,7 +42,10 @@ public class MemoryCacheService : ICacheService
         {
             _cache.Remove(key);
         }
-        _cache.Remove(_cacheSettings.MainKey);
+        if (!string.IsNullOrEmpty(_cacheSettings.MainKey))
+        {
+            _cache.Remove(_cacheSettings.MainKey);
+        }
     }
 
     public void StartsWithClear(string prefix)

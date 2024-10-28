@@ -27,7 +27,6 @@ public class KMLImporter
                     Latitude = item.geometry.coordinates[1],
                     Longitude = item.geometry.coordinates[0],
                     LastVisit = DateTime.Now,
-                    Color = 0,
                     Status = PlacemarkStatus.Active,
                     VisitPeriod = 30
                 });
