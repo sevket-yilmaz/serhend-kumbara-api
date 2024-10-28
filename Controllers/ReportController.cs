@@ -12,10 +12,12 @@ namespace SerhendKumbara.Controllers;
 public class ReportController : ControllerBase
 {
     private readonly PlacemarkService _placemarkService;
+    private IWebHostEnvironment environment;
 
-    public ReportController(PlacemarkService placemarkService)
+    public ReportController(PlacemarkService placemarkService, IWebHostEnvironment environment)
     {
         _placemarkService = placemarkService;
+        this.environment = environment;
     }
 
     [HttpGet]
@@ -27,11 +29,11 @@ public class ReportController : ControllerBase
         pdf.Info.Title = "KUMBARA RAPOR";
         PdfPage pdfPage = pdf.AddPage();
         XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-        XFont font = new XFont("Verdana", 10);
+        XFont font = new XFont("Arial", 10);
         var yPoint = 40;
         var xPoint = 50;
         int counter = 1;
-        graph.DrawString("KUMBARA LİSTESİ", new XFont("Verdana", 20), XBrushes.Black, new XRect(0, 10, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
+        graph.DrawString("KUMBARA LİSTESİ", new XFont("Arial", 20), XBrushes.Black, new XRect(0, 10, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
         graph.DrawLine(new XPen(XColors.LightGray), 0, yPoint, 600, yPoint);
 
         foreach (var item in list)
@@ -58,7 +60,7 @@ public class ReportController : ControllerBase
             }
             counter++;
         }
-        string pdfFilename = AppDomain.CurrentDomain.BaseDirectory + "KUMBARA_RAPOR.pdf";
+        string pdfFilename = environment.ContentRootPath + "/KUMBARA_RAPOR.pdf";
         pdf.Save(pdfFilename);
 
         var stream = new FileStream(pdfFilename, FileMode.Open);
