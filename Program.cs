@@ -39,6 +39,7 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true); // Timespan 
 //Service Dependencies
 builder.Services.AddTransient<KMLImporter, KMLImporter>();
 builder.Services.AddTransient<PlacemarkService, PlacemarkService>();
+builder.Services.AddTransient<RegionService, RegionService>();
 
 //Swagger
 builder.Services.AddEndpointsApiExplorer();

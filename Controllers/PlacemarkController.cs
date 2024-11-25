@@ -13,7 +13,7 @@ public class PlacemarkController : ControllerBase
     private readonly PlacemarkService _placemarkService;
     private readonly KMLImporter _importer;
 
-    public PlacemarkController(ILogger<PlacemarkController> logger, PlacemarkService placemarkService, KMLImporter kMLImporter)
+    public PlacemarkController(PlacemarkService placemarkService, KMLImporter kMLImporter)
     {
         _placemarkService = placemarkService;
         _importer = kMLImporter;

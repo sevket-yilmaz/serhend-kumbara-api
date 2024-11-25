@@ -13,6 +13,9 @@ public class Placemark
     public PlacemarkStatus Status { get; set; }
     public DateTime LastVisit { get; set; } = DateTime.MinValue;
     public int VisitPeriod { get; set; }
+
+    public int? RegionId { get; set; }
+    public Region? Region { get; set; }
 }
 
 public enum PlacemarkStatus
