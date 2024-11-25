@@ -14,7 +14,7 @@ public class Placemark
     public DateTime LastVisit { get; set; } = DateTime.MinValue;
     public int VisitPeriod { get; set; }
 
-    public int? RegionId { get; set; }
+    public int? RegionID { get; set; }
     public Region? Region { get; set; }
 }
 

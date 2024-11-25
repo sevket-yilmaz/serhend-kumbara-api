@@ -46,7 +46,7 @@ namespace SerhendKumbara.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar");
 
-                    b.Property<int?>("RegionId")
+                    b.Property<int?>("RegionID")
                         .HasColumnType("integer");
 
                     b.Property<int>("Status")
@@ -57,7 +57,7 @@ namespace SerhendKumbara.Data.Migrations
 
                     b.HasKey("PlacemarkID");
 
-                    b.HasIndex("RegionId");
+                    b.HasIndex("RegionID");
 
                     b.ToTable("Placemarks");
                 });
@@ -83,7 +83,7 @@ namespace SerhendKumbara.Data.Migrations
                 {
                     b.HasOne("SerhendKumbara.Data.Entity.Region", "Region")
                         .WithMany()
-                        .HasForeignKey("RegionId");
+                        .HasForeignKey("RegionID");
 
                     b.Navigation("Region");
                 });

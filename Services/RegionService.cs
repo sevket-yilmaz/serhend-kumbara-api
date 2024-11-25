@@ -53,7 +53,7 @@ public class RegionService
         bool placemarkIsExist = false;
         foreach (var region in regions)
         {
-            placemarkIsExist = _dBContext.Placemarks.Where(w => ids.Contains(w.RegionId ?? 0)).Any();
+            placemarkIsExist = _dBContext.Placemarks.Where(w => ids.Contains(w.RegionID ?? 0)).Any();
             if (placemarkIsExist)
             {
                 throw new Exception($"Region {region.RegionID} is used by some placemarks.");

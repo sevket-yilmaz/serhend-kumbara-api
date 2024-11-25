@@ -12,7 +12,7 @@ namespace SerhendKumbara.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "RegionId",
+                name: "RegionID",
                 table: "Placemarks",
                 type: "integer",
                 nullable: true);
@@ -31,14 +31,14 @@ namespace SerhendKumbara.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Placemarks_RegionId",
+                name: "IX_Placemarks_RegionID",
                 table: "Placemarks",
-                column: "RegionId");
+                column: "RegionID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Placemarks_Regions_RegionId",
+                name: "FK_Placemarks_Regions_RegionID",
                 table: "Placemarks",
-                column: "RegionId",
+                column: "RegionID",
                 principalTable: "Regions",
                 principalColumn: "RegionID");
         }
@@ -47,18 +47,18 @@ namespace SerhendKumbara.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Placemarks_Regions_RegionId",
+                name: "FK_Placemarks_Regions_RegionID",
                 table: "Placemarks");
 
             migrationBuilder.DropTable(
                 name: "Regions");
 
             migrationBuilder.DropIndex(
-                name: "IX_Placemarks_RegionId",
+                name: "IX_Placemarks_RegionID",
                 table: "Placemarks");
 
             migrationBuilder.DropColumn(
-                name: "RegionId",
+                name: "RegionID",
                 table: "Placemarks");
         }
     }
